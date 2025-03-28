@@ -42,7 +42,7 @@ class Scrapper:
                 price = card.find("span", class_="rh_regular_price")
                 payment_method = card.find("span", class_="forma_de_pagamamento")
                 link = card.find("a", class_="btn_offer_block")
-                image = card.find("img")
+                image = card.find("figure").find("img")
                 coupon = card.find("span", class_="coupon_text")
 
                 product = {
