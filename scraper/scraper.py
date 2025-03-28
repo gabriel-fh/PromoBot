@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 
 class Scrapper:
     def __init__(self, route=""):
-        self.base_url = "https://boletando.com"
-        self.route = route  
+        self._base_url = "https://boletando.com"
+        self._route = route  
 
     def _get_text_or_default(self, element, default=""):
         return element.get_text(strip=True) if element else default
@@ -22,8 +22,8 @@ class Scrapper:
             raise Exception("Ocorreu um erro!: " + str(e))
         return response
 
-    def get_promotions(self):
-        url = f"{self.base_url}{self.route}"
+    def get_offers(self):
+        url = f"{self._base_url}{self._route}"
 
         try:
             response = self._get_data(url)
